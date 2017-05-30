@@ -5,7 +5,7 @@
 def application(environ, start_response):
 	# For testing
 	data = environ['QUERY_STRING']
-	data = '\n'.join(data.split('&'))
+	data = '\n'.join(data.split('&')) + '\n'
 	
 	response_headers = [
 		('Content-type', 'text/plain'),
