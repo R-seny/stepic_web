@@ -5,11 +5,11 @@
 def application(environ, start_response):
 	# For testing
 	data = environ['QUERY_STRING']
-	data = '\n'.join(data.split('&')) + '\n'
+	data = [bytes(i + '\n', 'ascii') for i in data.split('&'))]
 	
 	response_headers = [
 		('Content-type', 'text/plain'),
-		('Content-Lenghth', str(len(data)))
+	#	('Content-Lenghth', str(len(data)))
 	]
 	
 	status = '200 OK'
