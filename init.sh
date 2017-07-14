@@ -6,6 +6,8 @@ sudo ln -sf /home/box/web/etc/hello.py /etc/gunicorn.d/hello.py
 sudo gunicorn -c /etc/gunicorn.d/hello.py hello:application &
 sudo gunicorn -c ./etc/qa_conf_stepic.py ask.wsgi:application
 
+mysql -uroot -e "create database qadb"
+
 
 
 
