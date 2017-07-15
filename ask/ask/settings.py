@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'qadb',
         'USER': 'root',
-	'PASSWORD': '123',
+#	'PASSWORD': '123',
     }
 }
 
