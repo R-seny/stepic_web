@@ -14,18 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-#from django.contrib import admin
+from django.contrib import admin
 
 from qa import views as qaviews
 
 urlpatterns = [
-    #url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^login/$', qaviews.test), # call the test (OK) function from views here!
     url(r'^signup/$', qaviews.test), # call the test (OK) function from views here!
-    url(r'^question/[0-9]+$', qaviews.test), # call the test (OK) function from views here!
-    url(r'^$', qaviews.test), # call the test (OK) function from views here!
+    url(r'^question/(?P<qid>[0-9]+)$', qaviews.question_page, name='question'), # call the test (OK) function from views here! 
+    url(r'^$', qaviews.index, name='index'), # call the test (OK) function from views here!
     url(r'^ask/$', qaviews.test), # call the test (OK) function from views here!
-    url(r'^popular/$', qaviews.test), # call the test (OK) function from views here!
-    url(r'^new/$', qaviews.test) # call the test (OK) function from views here!
+    url(r'^popular/', qaviews.popular, name='popular') # call the test (OK) function from views here!
+    #url(r'^new/', qaviews.test) # call the test (OK) function from views here!
     
 ]
